@@ -13,6 +13,8 @@
 #include "functions.h"
 
 int main(int argc,char *argv[]) {
+    clock_t startTime = clock();
+
     int         i,j,k,l,m;                              /* generic indices */
     char        scrStr[SCRLEN];                         /* scratch string */
     double      sumKernel;                              /* photometric normalization */
@@ -1989,6 +1991,10 @@ int main(int argc,char *argv[]) {
     
     fprintf(stderr, "SUCCESS\n");
     
+    clock_t endTime = clock();
+    clock_t time = (endTime - startTime) * 1000 / CLOCKS_PER_SEC;
+    printf("HOTPANTS took %d ms\n", time);
+
     /* freedom itself! */
     return 0;
 }
